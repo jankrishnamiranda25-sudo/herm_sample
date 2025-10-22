@@ -1,0 +1,286 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f7cac9 0%, #92a8d1 100%);
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: #333;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 2.3rem;
+    text-shadow: 1px 2px 8px #fff8;
+}
+@keyframes fadeIn {
+    from {opacity:0;transform:translateY(10px);}
+    to {opacity:1;transform:translateY(0);}
+}
+
+/* Fancy Pay Button Animation */
+.fancy-pay {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    transition: all 0.3s ease;
+}
+.fancy-pay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
+    transition: all 0.4s ease;
+}
+.fancy-pay:hover::before {
+    left: 100%;
+}
+.fancy-pay:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(229,46,113,0.3);
+}
+.fancy-pay:active {
+    transform: scale(0.98);
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+}
+
+
+.cart-link {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    background: #ff9800;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px #3332;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.cart-link:hover {
+    background: #e67c00;
+    box-shadow: 0 4px 18px #3334;
+    transform: scale(1.07);
+}
+
+.foods-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.food-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(150,150,150,0.10);
+    width: 270px;
+    padding: 22px 18px 18px 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.food-card:hover {
+    box-shadow: 0 8px 30px rgba(150,150,150,0.18);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.food-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: transform 0.2s;
+}
+
+.food-card:hover img {
+    transform: scale(1.05);
+}
+
+.food-card h2 {
+    margin: 12px 0 8px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.food-card .price {
+    color: #b12704;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.18rem;
+}
+
+.btn {
+    background: linear-gradient(90deg,#ff9800 60%,#ffc107 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 6px 4px 0;
+    box-shadow: 0 2px 8px #ff980040;
+    transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+    outline: none;
+    position: relative;
+}
+.btn:hover, .remove-btn:hover {
+    background: linear-gradient(90deg,#e67c00 60%,#ff9800 100%);
+    box-shadow: 0 4px 16px #ff980070;
+    transform: scale(1.07);
+}
+#cart-table tr {
+    transition: background 0.3s, opacity 0.3s;
+}
+#cart-table tr:hover {
+    background: #fdf3d3;
+}
+.remove-btn {
+    background: #f44336;
+    color: #fff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.18s;
+}
+.remove-btn:active {
+    background: #c62828;
+    transform: scale(0.95);
+}
+
+.btn:active, .add-to-cart:active {
+    background: linear-gradient(90deg,#e67c00 60%,#ff9800 100%);
+    transform: scale(0.97);
+}
+
+.btn:hover, .add-to-cart:hover {
+    background: linear-gradient(90deg,#e67c00 60%,#ff9800 100%);
+    box-shadow: 0 4px 16px #ff980070;
+    transform: scale(1.07);
+}
+
+.food-detail {
+    background: #fff;
+    border-radius: 10px;
+    padding: 32px;
+    max-width: 420px;
+    margin: 30px auto;
+    box-shadow: 0 2px 8px rgba(100,100,100,0.10);
+    text-align: center;
+}
+.food-detail img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+}
+.food-detail img:hover {
+    box-shadow: 0 8px 24px #ff980040;
+}
+
+table {
+    background: #fff;
+    margin-top: 24px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #3332;
+}
+th, td {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+}
+th {
+    background: #fafafa;
+    font-weight: bold;
+}
+.empty-cart-card {
+    background: #fffbe9;
+    border: 1px solid #ffe0b2;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px #ffd58060;
+    max-width: 380px;
+    margin: 48px auto;
+    padding: 32px 24px;
+    text-align: center;
+    color: #a67c00;
+    animation: fadeIn 0.8s;
+}
+.empty-cart-card svg {
+    margin-bottom: 18px;
+}
+.empty-cart-card h2 {
+    margin: 12px 0 6px;
+    color: #ff9800;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+.empty-cart-card p {
+    margin-bottom: 20px;
+    color: #a67c00;
+    font-size: 1.06rem;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@media (max-width: 800px) {
+    .foods-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .food-card {
+        width: 95vw;
+        max-width: 340px;
+    }
+}
+/* ---- Payment and Cart Actions ---- */
+.cart-actions,
+.payment-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---- Order Summary Section ---- */
+.order-summary-container {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+}
+
+/* Optional: if you want the table and button to be grouped visually */
+.order-summary-container table {
+    margin-top: 0;
+}
+
+.order-summary-container .payment-actions {
+    margin-top: 12px;
+}
